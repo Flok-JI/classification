@@ -65,7 +65,7 @@
         <div class="p-6 sm:p-10" id="quiz-container">
             <!-- Questions -->
             <div id="question-box" class="step">
-                <span id="stepCounter" class="text-xs font-bold uppercase tracking-widest johner-red">Frage 1 / 9</span>
+                <span id="stepCounter" class="text-xs font-bold uppercase tracking-widest johner-red">Frage 1 / 11</span>
                 <h2 id="questionText" class="text-xl sm:text-2xl font-bold text-slate-800 mt-2 mb-4 leading-snug">...</h2>
                 
                 <!-- Zweckbestimmung Box -->
@@ -206,6 +206,18 @@
                 purpose: "Aufziehen und Verabreichen von Flüssigkeiten oder Medikamenten zusammen mit einer separaten Kanüle oder einem Infusionssystem.",
                 correctClass: "Klasse I", 
                 explanation: "<strong>Klasse I (Is) – Regel 2:</strong> Nicht-invasive Produkte zur Durchleitung oder Aufbewahrung von Flüssigkeiten zur eventuellen Infusion in den Körper sind Klasse I (da steril in Verkehr gebracht: Klasse Is, mit Beteiligung einer Benannten Stelle für die Sterilität)." 
+            },
+            {
+                text: "Pulsoximeter zur kontinuierlichen Überwachung der Sauerstoffsättigung",
+                purpose: "Nicht-invasive Messung und Überwachung der arteriellen Sauerstoffsättigung (SpO2) und Pulsfrequenz bei Patienten.",
+                correctClass: "Klasse IIa",
+                explanation: "<strong>Klasse IIa – Regel 10:</strong> Aktive Produkte zur Überwachung vitaler physiologischer Parameter fallen in Klasse IIa (sofern sie nicht für besonders gefährliche Zustände oder lebenswichtige Funktionen mit unmittelbarer Gefahr bestimmt sind)."
+            },
+            {
+                text: "Implantierbarer Herzschrittmacher",
+                purpose: "Kontinuierliche Überwachung des Herzrhythmus und Abgabe elektrischer Impulse zur Korrektur von Bradykardien über einen langen Zeitraum im Körper.",
+                correctClass: "Klasse IIb",
+                explanation: "<strong>Klasse IIb – Regel 8:</strong> Aktive implantierbare Produkte sowie implantierbare Produkte zur langzeitigen Anwendung fallen grundsätzlich in Klasse IIb (sofern keine spezifische Höherstufung nach einer anderen Regel greift)."
             }
         ];
 
@@ -247,7 +259,6 @@
             const q = questions[currentQ];
             const isCorrect = (userAnswer === q.correctClass);
             
-            // Score & Coin Effect
             const points = isCorrect ? 100 : -50;
             score += points;
             document.getElementById('scoreDisplay').innerText = score;
@@ -260,7 +271,6 @@
             document.getElementById('quiz-container').appendChild(coin);
             setTimeout(function() { coin.remove(); }, 1000);
 
-            // Feedback screen
             currentScreen = "feedback";
             document.getElementById('question-box').classList.remove('active');
             document.getElementById('feedback-box').classList.add('active');
@@ -327,7 +337,6 @@
             }
         }
 
-        // Event-Listener sauber registrieren
         document.getElementById('startQuizBtn').addEventListener('click', startQuiz);
         document.getElementById('btnClass1').addEventListener('click', function() { handleAnswer('Klasse I'); });
         document.getElementById('btnClass2a').addEventListener('click', function() { handleAnswer('Klasse IIa'); });
