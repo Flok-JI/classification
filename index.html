@@ -141,8 +141,8 @@
 
     <script>
         // Supabase Init (sicher gekapselt)
-        const SUPABASE_URL = 'https://icuwbibmhlqpmfgvjibp.supabase.co'; 
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImljdXdiaWJtaGxxcG1mZ3ZqaWJwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc0OTk1NDEsImV4cCI6MjA5MzA3NTU0MX0.8Yo8ueUcOEZt_ZEbIj_OvwCTQ2O3aOfhYxPWT1rq-OI'; 
+        const SUPABASE_URL = 'https://icuwbibmhlqpmfgvjibp.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImljdXdiaWJtaGxxcG1mZ3ZqaWJwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc0OTk1NDEsImV4cCI6MjA5MzA3NTU0MX0.8Yo8ueUcOEZt_ZEbIj_OvwCTQ2O3aOfhYxPWT1rq-OI';
         let supabaseClient = null;
         try {
             if (window.supabase && typeof window.supabase.createClient === 'function') {
@@ -337,6 +337,7 @@
             }
         }
 
+        // Event-Listener sauber registrieren
         document.getElementById('startQuizBtn').addEventListener('click', startQuiz);
         document.getElementById('btnClass1').addEventListener('click', function() { handleAnswer('Klasse I'); });
         document.getElementById('btnClass2a').addEventListener('click', function() { handleAnswer('Klasse IIa'); });
